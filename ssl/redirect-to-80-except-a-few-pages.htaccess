@@ -1,20 +1,31 @@
-# Variables
+### Background
+# When you are on a SSL page, say https://domainname.com/ssl_page1, then if you click any links inside that page, then you'd be clicking the HTTPS part of those links. So, there needs to be a way to make them to be redirected to port 80. This code does just that.
+
+# -------------------------
+
+### Variables ###
 # Replace domainname.com with the actual domainname
 # Replace page1, page2, etc, with the actual name of the page
 
 # -------------------------
 
-# SSL
+### SSL specific code
 # Redirect everything else to non-ssl
 # Except for 5 pages and for files
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteCond %{SERVER_PORT} ^443$
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_URI} !/page1/?
-RewriteCond %{REQUEST_URI} !/page2/?
+RewriteCond %{REQUEST_URI} !/ssl_page1/?
+RewriteCond %{REQUEST_URI} !/ssl_page2/?
 RewriteRule .* http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 </IfModule>
+
+### Explanation
+# Check if the request is made through 443 (SSL request)
+# If the request is a file (ex: style.css or any JS file), that should go through
+# If the request is ssl_page1, ssl_page2, etc, they should go through
+# Everything else should be redirected to non-ssl version
 
 # -------------------------
 
