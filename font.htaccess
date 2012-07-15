@@ -1,0 +1,15 @@
+# RewriteEngine On
+# IndexIgnore *
+# Options +FollowSymLinks -Multiviews -Indexes
+
+#### The above lines should be always at the top of your .htaccess
+
+AddType font/ttf .ttf
+AddType font/eot .eot
+AddType font/otf .otf
+AddType font/woff .woff
+<FilesMatch "\.(ttf|otf|eot|woff)$">
+	<IfModule mod_headers.c>
+		Header set Access-Control-Allow-Origin "*"
+	</IfModule>
+</FilesMatch>
