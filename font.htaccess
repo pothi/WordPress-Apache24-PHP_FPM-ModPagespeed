@@ -1,3 +1,5 @@
+### Ref: http://support.netdna.com/knowledgebase/working-webfonts-with-cdn/
+
 # RewriteEngine On
 # IndexIgnore *
 # Options +FollowSymLinks -Multiviews -Indexes
