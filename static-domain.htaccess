@@ -1,0 +1,7 @@
+# For static domain
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_HOST} static\.domain\.com
+RewriteCond %{REQUEST_URI} !^/.*\.(:?css|js|txt|html|jpg|jpeg|png|gif)$
+RewriteRule ^(.*)$ http://domain.com/$1 [R=301,L]
+</IfModule>
