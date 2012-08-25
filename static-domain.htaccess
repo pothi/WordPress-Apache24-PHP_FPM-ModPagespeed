@@ -2,8 +2,9 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteCond %{HTTP_HOST} static\.domain\.com
-RewriteCond %{REQUEST_URI} !^/.*\.(:?css|js|txt|html|xml)$
+RewriteCond %{REQUEST_URI} !^/.*\.(:?css|js)$
 RewriteCond %{REQUEST_URI} !^/.*\.(:?jpg|jpeg|png|gif|ico)$
 RewriteCond %{REQUEST_URI} !^/.*\.(:?woff|eot|otf|ttf)$
+RewriteCond %{REQUEST_URI} !^/.*\.(:?txt|html|xml)$
 RewriteRule ^(.*)$ http://domain.com/$1 [R=301,L]
 </IfModule>
