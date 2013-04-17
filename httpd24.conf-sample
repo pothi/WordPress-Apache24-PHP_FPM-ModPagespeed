@@ -1,0 +1,18 @@
+### Please do not modify anything with the default configuration file, EXCEPT the following...
+# - User daemon
+# - Group daemon
+# - ServerAdmin you@example.com
+# - uncomment '#Include /etc/httpd/extra/httpd-mpm.conf'
+# - uncomment '#Include /etc/httpd/extra/httpd-default.conf'
+
+
+
+### Finally, include the following...
+# To load (custom modules)
+Include /etc/httpd24/mods-enabled/
+
+# To load the custom configurations
+Include /etc/httpd24/conf.d/
+
+# vhost!
+Include /etc/httpd24/sites-enabled/

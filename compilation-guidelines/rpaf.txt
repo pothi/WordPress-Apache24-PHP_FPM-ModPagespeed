@@ -1,0 +1,16 @@
+# Compile mod_rpaf for Apache http server 2.4.x
+# Ref: http://vova-zms.blogspot.in/2012/07/install-modrpaf-with-apache-24.html
+# Do the following as a normal user; only the final step needs sudo privilege
+
+# latest version at http://stderr.net/apache/rpaf/download/
+wget http://stderr.net/apache/rpaf/download/mod_rpaf-0.6.tar.gz
+
+tar xzf mod_rpaf-0.6.tar.gz && rm mod_rpaf-0.6.tar.gz && cd mod_rpaf*
+
+# let's not modify the original file
+cp mod_rpaf-2.0.c mod_rpaf-2.4.c
+sed -i 's/remote_/client_/g' mod_rpaf-2.4.c
+apxs -c -n mod_rpaf-2.4.so mod_rpaf-2.4.c
+
+# needs sudo privileges to do the following
+sudo apxs -i  -c -n mod_rpaf-2.4.so mod_rpaf-2.4.c

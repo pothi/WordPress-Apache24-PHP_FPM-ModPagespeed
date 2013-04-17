@@ -1,0 +1,3 @@
+# Loads rpaf module
+# Source: http://stderr.net/apache/rpaf/
+LoadModule rpaf_module /etc/httpd24/modules/mod_rpaf-2.4.so
